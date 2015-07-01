@@ -2,7 +2,6 @@
 
 <% @paintings.each do |p| %>
 	<%= link_to p.title, p %>:
-	<%= p.description %>
 	by <%= p.painter %>
 	<br />
 <% end %>
