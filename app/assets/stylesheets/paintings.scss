@@ -2,10 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body h1, h3{
+body h1, h3, .flash {
 	text-align: center;
 }
-
 
 $stroke_color: #674172;
 
@@ -49,6 +48,7 @@ $stroke_color: #674172;
 ul {
 	padding-top: 25px;
 	font-size: 1.5em;
+	padding-right: 40px;
 }
 
 .show-item {

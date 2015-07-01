@@ -1,5 +1,6 @@
 class PaintingsController < ApplicationController
-  http_basic_authenticate_with name: 'bjorn', password: '123'
+  
+  before_action :check_if_logged_in
   before_action :find_painting, only: [:show, :edit, :update, :destroy]
 
   def index
