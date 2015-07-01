@@ -15,3 +15,13 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+
+$(document).ready(function() {
+	$('.index-item').on('mouseover', function() {
+		$(this).find('p').fadeIn(500);
+	});
+	$('.index-item').on('mouseleave', function() {
+		$(this).find('p').fadeOut(500);
+	});
+});

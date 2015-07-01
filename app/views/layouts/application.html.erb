@@ -8,19 +8,21 @@
 </head>
 <body>
 <div class='container'>
-	<nav class='navbar navbar-default'>
-		<div class='navbar-header'>
-			<div class='container-fluid'>
-			<a href='/' class=''>
-				<img src='http://lcdn.avenueart.co.uk/8017B3C/avenueart/skin/frontend/ultimo/default/images/logo2.png'>
-			</a>
+	<nav class='navbar navbar-default my-nav'>
+		<div class=''>
+			<div class='navbar-header'>
+				<div class='container-fluid'>
+				<a href='/' class=''>
+					<img src='http://lcdn.avenueart.co.uk/8017B3C/avenueart/skin/frontend/ultimo/default/images/logo2.png'>
+				</a>
+			</div>
+			</div>
+			<ul class='nav navbar-nav navbar-right'>
+				<li class=''><%= link_to 'Add Painting', new_painting_path %></li>
+				<li class=''><a href=''>Profile</a></li>
+				<li class=''>Log out</li>
+			</ul>
 		</div>
-		</div>
-		<ul class='nav navbar-nav navbar-right'>
-			<li class=''><%= link_to 'Add Painting', new_painting_path %></li>
-			<li class=''><a href=''>Profile</a></li>
-			<li class=''>Log out</li>
-		</ul>
 	</nav>
 </div>
 <%= yield %>
