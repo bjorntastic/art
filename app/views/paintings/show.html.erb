@@ -1,0 +1,23 @@
+<div class='container'>
+	<div class='panel panel-default'>
+		
+		<div class='panel-heading'>
+			<h1 class='panel-title'><%= @painting.title %></h1>
+		</div>
+		
+		<div class='panel-body'>
+			<%= @painting.description %>
+		</div>
+		
+		<div class='panel-footer'>
+			painted by <%= @painting.painter %>
+			<div class=''>
+				<%= link_to 'Edit', edit_painting_path, class: 'btn btn-default' %>
+				<%= link_to 'Delete', painting_path, method: 'delete', class: 'btn btn-default' %>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+
