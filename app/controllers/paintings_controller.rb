@@ -5,6 +5,7 @@ class PaintingsController < ApplicationController
 
   def index
   	@paintings = Painting.all
+    @user_id = session[:user_id]
   end
 
   def show
@@ -38,6 +39,17 @@ class PaintingsController < ApplicationController
   def destroy
   	@painting.destroy
   	redirect_to root_path, notice: 'Painting deleted.'
+  end
+
+  def like
+    like = Like.new
+    like.user_id = session[:user_id]
+    like.painting_id = params[:id]
+    if like.save
+      redirect_to '/', notice: 'Like registered!'
+    else
+      redirect_to '/', notice: 'Could not like.'
+    end
   end
 
   private

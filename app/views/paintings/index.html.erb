@@ -1,22 +1,26 @@
 <div class='container'>
 	<p>Next level Brooklyn shabby chic, bicycle rights meh aesthetic sartorial cardigan you probably haven't heard of them chambray lomo dreamcatcher small batch before they sold out freegan. Food truck distillery fashion axe, YOLO stumptown tousled flannel Helvetica bitters disrupt cronut Shoreditch. Lumbersexual cred kitsch, wolf listicle asymmetrical actually. Bitters American Apparel skateboard, blog art party umami Kickstarter irony mustache mumblecore disrupt stumptown. Gluten-free keytar messenger bag PBR&B, Wes Anderson readymade meditation 90's. Brooklyn cliche pork belly dreamcatcher. Irony Vice Intelligentsia bitters ennui, skateboard try-hard Echo Park iPhone keytar.</p>
 
-	<div class='row index-row'>
+	<div class='row index-row transitions-enabled'>
 		<div class='container'>
 		<% @paintings.each do |p| %>
 			<div class='index-item'>
-			<div class='panel panel-default'>
-				<div class='panel-body'>
-					<%= link_to (image_tag p.picture.url(:medium)), p %>
+				<div class='panel panel-default'>
+					<div class='panel-body'>
+						<%= link_to (image_tag p.picture.url(:medium)), p %>
+					</div>
+					<div class='panel-footer'>
+						<br/>
+						<p><strong><%= p.title %></strong><span class='pull-right'><%= p.likes.count %> <span class='glyphicon glyphicon-heart'></span></span><br />
+							By <%= p.user.email %>
+							<% if p.likes.find_by_user_id(@user_id) == nil %>
+							<%= link_to 'Like', like_painting_path(p), class: 'pull-right btn btn-default' %>
+							<% end %>
+						</p>
+					</div>
 				</div>
-				<div class='panel-footer'>
-					<br/>
-					<p><strong><%= p.title %></strong><br />
-						Submitted by <%= p.user.email %></p>
-				</div>
-			</div>
 			</div>
 		<% end %>
-	</div>
+		</div>
 	</div>
 </div>

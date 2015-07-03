@@ -12,6 +12,18 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require masonry/jquery.masonry
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+function ready() {
+	$('.index-row').masonry({
+		itemSelector: '.index-item',
+		columnWidth: 30
+	});
+};
+
+$(document).ready(ready);
+// this second one is needed because of turbolinks
+$(document).on('page:load', ready);

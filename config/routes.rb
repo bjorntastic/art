@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   
-  resources :paintings
+  resources :paintings do
+    member do
+      get :like
+    end
+  end
 
   get '/login', to: 'access#login'
   post '/login' => 'access#attempt_login'

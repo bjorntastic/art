@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem "paperclip", "~> 4.3"
 gem 'haml', '~> 4.0.6'
 gem 'bcrypt', '~> 3.1.7'
+gem 'masonry-rails', '~> 0.2.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
