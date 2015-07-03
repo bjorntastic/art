@@ -16,6 +16,7 @@ class PaintingsController < ApplicationController
 
   def create
   	@painting = Painting.new(painting_params)
+    @painting.user_id = session[:user_id]
   	if @painting.save
   		redirect_to root_path, notice: 'Painting saved to database.'
   	else

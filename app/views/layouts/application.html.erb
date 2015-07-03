@@ -7,36 +7,35 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class='container'>
-	<nav class='navbar navbar-default my-nav'>
-		<div class=''>
-			<div class='navbar-header'>
-				<div class='container-fluid'>
-				<a href='/' class=''>
-					<img src='http://lcdn.avenueart.co.uk/8017B3C/avenueart/skin/frontend/ultimo/default/images/logo2.png'>
-				</a>
-			</div>
-			</div>
-			<ul class='nav navbar-nav navbar-right'>
-				<% if session[:user_id] %>
-				<li class=''><%= link_to 'Add Painting', new_painting_path %></li>
-				<li class=''><a href=''>Profile</a></li>
-				<li class=''><%= link_to 'Log Out', '/logout', :method => 'delete' %></li>
-				<% else %>
-					<li><%= link_to 'Log In', '/login' %></li>
-					<li><%= link_to 'Register', '/register' %></li>
+	<div class= 'background'>
+		<div class='container'>
+			<nav class='navbar navbar-default'>
+				<div class=''>
+					<div class='navbar-header'>
+						<div class='container-fluid'>
+							<%= link_to (image_tag 'https://upload.wikimedia.org/wikipedia/en/6/62/ART_Television_(Sri_Lanka)_(logo).png', alt: "ART"), '/' %>
+						</div>
+					</div>
+					<ul class='nav navbar-nav navbar-right'>
+						<% if session[:user_id] %>
+						<li class=''><%= link_to 'Add Painting', new_painting_path %></li>
+						<li class=''><a href=''>Profile</a></li>
+						<li class=''><%= link_to 'Log Out', '/logout', :method => 'delete' %></li>
+						<% else %>
+							<li><%= link_to 'Log In', '/login' %></li>
+							<li><%= link_to 'Register', '/register' %></li>
+						<% end %>
+					</ul>
+				</div>
+			</nav>
+			<div class='flash'>
+				<% if flash[:notice] %>
+					<%= flash[:notice] %>
+					<br /><br />
 				<% end %>
-			</ul>
+			</div>
 		</div>
-	</nav>
-	<div class='flash'>
-		<% if flash[:notice] %>
-			<%= flash[:notice] %>
-			<br /><br />
-		<% end %>
+		<%= yield %>
 	</div>
-</div>
-<%= yield %>
-
 </body>
 </html>

@@ -1,14 +1,20 @@
 <div class='container'>
-	<h1>Paintings#index</h1>
 	<p>Next level Brooklyn shabby chic, bicycle rights meh aesthetic sartorial cardigan you probably haven't heard of them chambray lomo dreamcatcher small batch before they sold out freegan. Food truck distillery fashion axe, YOLO stumptown tousled flannel Helvetica bitters disrupt cronut Shoreditch. Lumbersexual cred kitsch, wolf listicle asymmetrical actually. Bitters American Apparel skateboard, blog art party umami Kickstarter irony mustache mumblecore disrupt stumptown. Gluten-free keytar messenger bag PBR&B, Wes Anderson readymade meditation 90's. Brooklyn cliche pork belly dreamcatcher. Irony Vice Intelligentsia bitters ennui, skateboard try-hard Echo Park iPhone keytar.</p>
 
-	<div class='row idex-row'>
+	<div class='row index-row'>
 		<div class='container'>
 		<% @paintings.each do |p| %>
 			<div class='index-item'>
-				<%= link_to (image_tag p.picture.url(:medium)), p %>
-				<br/>
-				<p>by <%= p.painter %></p>
+			<div class='panel panel-default'>
+				<div class='panel-body'>
+					<%= link_to (image_tag p.picture.url(:medium)), p %>
+				</div>
+				<div class='panel-footer'>
+					<br/>
+					<p><strong><%= p.title %></strong><br />
+						Submitted by <%= p.user.email %></p>
+				</div>
+			</div>
 			</div>
 		<% end %>
 	</div>
