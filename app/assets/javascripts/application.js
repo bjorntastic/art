@@ -18,10 +18,13 @@
 //= require_tree .
 
 function ready() {
+	
+	// do some masonry for awesome styling
 	$('.index-row').masonry({
 		itemSelector: '.index-item',
 		columnWidth: 30
 	});
+
 };
 
 $(document).ready(ready);
