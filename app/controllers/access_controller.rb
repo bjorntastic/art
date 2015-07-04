@@ -1,13 +1,13 @@
 class AccessController < ApplicationController
 
-	before_action :check_if_logged_in, except: [:login, :attempt_login, :register]
+	before_action :check_if_logged_in, except: [:login, :attempt_login, :register, :create]
 
 	def login
 		@user = User.new
 	end
 
 	def attempt_login
-		user = User.where(:username => "bjorntastic").first
+		user = User.where(:username => params[:username]).first
 		if user && user.authenticate(params[:password])
 			session[:username] = user.username
 			session[:user_id] = user.id
@@ -15,6 +15,7 @@ class AccessController < ApplicationController
 		else
 			redirect_to '/login', notice: 'Invalid username / password.'
 		end
+		
 	end
 
 	def logout
@@ -29,7 +30,8 @@ class AccessController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		if @user.save
-			redirect_to root_url, notice: 'Welcome to Art!'
+			session[:user_id] = @user.id
+			redirect_to root_path, notice: 'Welcome to Art!'
 		else
 			render 'register'
 		end
@@ -42,7 +44,7 @@ class AccessController < ApplicationController
 	def update
 		@user = User.find(session[:user_id])
 		if @user.update(user_params)
-			redirect_to root_url, notice: 'Profile updated'
+			redirect_to root_path, notice: 'Profile updated'
 		else
 			render 'edit'
 		end
