@@ -1,8 +1,8 @@
-<div class='container' >
+<div class='row' >
 	<div class='col-md-6 col-md-offset-3'>
-		<h1>Edit</h1>
-		<%= image_tag @painting.picture.url(:medium) %>
-		<br /><br />
+		<h3>Edit Photo</h3>
+		<%= image_tag @painting.picture.url(:medium), class: 'col-md-offset-3 col-md-6' %>
+		<div style='display:block;height:250px'></div>
 		<%= render 'form' %>
 	</div>
 </div>
