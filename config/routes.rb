@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   post '/register' => 'access#create'
   delete '/logout' => 'access#logout'
 
+  get '/profile' => 'access#edit'
+  patch '/profile' => 'access#update'
+
   root to: 'paintings#index'
 
 end

@@ -1,0 +1,15 @@
+.container
+	.row
+		%h3= "Editing #{@user.username}'s Profile"
+		=form_for @user, url: { controller: "access", action: 'update' }do |f|
+			%br
+			%div.form-group.col-md-4.col-md-offset-4
+				=f.text_field :username, class: 'form-control', placeholder: 'Username'
+			%div.form-group.col-md-4.col-md-offset-4
+				=f.text_field :email, class: 'form-control', placeholder: 'Email'
+			%div.form-group.col-md-4.col-md-offset-4
+				=f.password_field :password, class: 'form-control', placeholder: 'Password'
+			%div.form-group.col-md-4.col-md-offset-4
+				=f.password_field :password_confirmation, class: 'form-control', placeholder: 'Confirm Password'
+			%div.form-group.col-md-4.col-md-offset-4
+				=f.submit class: 'form-control btn btn-primary'
