@@ -1,6 +1,6 @@
 class AccessController < ApplicationController
 
-	before_action :check_if_logged_in, except: [:login, :attempt_login, :register]
+	#before_action :check_if_logged_in, except: [:login, :attempt_login, :register]
 
 	def login
 		@user = User.new
